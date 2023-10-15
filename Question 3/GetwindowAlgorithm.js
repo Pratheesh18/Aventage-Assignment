@@ -26,16 +26,16 @@ function getWindow(periods , month){
     
     }
     
-    // for (let m = -5; m <= 15; m++) {
-    //     const noOfPeriods = 12; // possible values -> 1, 2, 4, 12
-    //     const currentMonth = m;
-    //     console.log(
-    //       `currentMonth=${currentMonth} : noOfPeriods=${noOfPeriods} : window=${getWindow(
-    //         noOfPeriods,
-    //         currentMonth
-    //       )}`
-    //     );
-    //   }
+    for (let m = -5; m <= 15; m++) {
+        const noOfPeriods = 12; // possible values -> 1, 2, 4, 12
+        const currentMonth = m;
+        console.log(
+          `currentMonth=${currentMonth} : noOfPeriods=${noOfPeriods} : window=${getWindow(
+            noOfPeriods,
+            currentMonth
+          )}`
+        );
+      }
     console.log(getWindow(12,12))
     
     
