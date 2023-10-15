@@ -1,6 +1,6 @@
 // Initializing empty arrays to store the data
 const customerOrder = [];
-const restaurantOrders = {};
+const restaurantOrders = [];
 
 // Restaurants
 const restaurants = ['Restaurant A', 'Restaurant B', 'Restaurant C'];
