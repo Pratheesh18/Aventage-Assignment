@@ -37,7 +37,4 @@ function getWindow(periods , month){
         );
       }
     console.log(getWindow(12,12))
-    
-    
-    //pesudo code
 
