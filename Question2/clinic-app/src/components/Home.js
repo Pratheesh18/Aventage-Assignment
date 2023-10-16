@@ -1,6 +1,6 @@
 import React, { useState , useEffect } from "react";
 import AddPatient from "./AddPatient";
-import { Button , Container , Card , Row , Col } from "react-bootstrap";
+import {  Container , Card , Row , Col } from "react-bootstrap";
 import './Home.css';
 import axios from "axios";
 
@@ -9,16 +9,12 @@ const Home = () => {
   const [patients , setPatients] = useState([]);
 
   useEffect(() => {
-    // Fetch the list of patients from your API
     axios.get("http://localhost:5000/api/patients").then((response) => {
       setPatients(response.data);
     });
   }, []);
 
-  const openModal = () => {
-    setShowModal(true);
-  };
-
+  
   const closeModal = () => {
     setShowModal(false);
   };
@@ -26,13 +22,12 @@ const Home = () => {
   return (
     <div>
       <h2>Welcome, Doctor</h2>
-      {/* <Button variant='primary' onClick={openModal}>Add Patient</Button> */}
        <AddPatient show={showModal} handleClose={closeModal} />
        <Container>
       <Row>
         {patients.map((patient) => (
           <Col key={patient._id} sm={12} md={6} lg={4} xl={3}>
-            <Card>
+            <Card style={{marginBottom:"20px"}}>
               <Card.Body>
                 <Card.Title>{patient.name}</Card.Title>
                 <Card.Text>

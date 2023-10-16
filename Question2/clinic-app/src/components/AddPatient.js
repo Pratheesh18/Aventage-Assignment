@@ -12,6 +12,8 @@ const AddPatient = () => {
     notes: "",
   });
 
+  
+
   const [showModal, setShowModal] = useState(false);
 
   const handleInputChange = (e) => {
@@ -26,6 +28,8 @@ const AddPatient = () => {
   const handleClose = () => {
     setShowModal(false);
   };
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
