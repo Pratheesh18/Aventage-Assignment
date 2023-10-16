@@ -16,6 +16,7 @@ const getAllPatients = async (req,res) => {
     try{
         const patients = await Patient.find();
         res.json(patients);
+        console.log("patient fetched")
     }catch(error){
         res.status(500).json({error : 'Unable to fetch patients'});
     }

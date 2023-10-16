@@ -3,9 +3,8 @@ const mongoose = require('mongoose');
 
 const patientSchema = new mongoose.Schema({
     name : String,
-    birthday : Date , 
-    contactNo : String,
-    photo : String , 
+    birthday : String , 
+    contactNo : String, 
     nic : String , 
     notes : String,
 });
