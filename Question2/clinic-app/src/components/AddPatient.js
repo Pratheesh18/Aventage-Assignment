@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import axios from "axios";
+import './AddPatient.css';
 
 const AddPatient = () => {
   const [patient, setPatient] = useState({
@@ -43,16 +44,16 @@ const AddPatient = () => {
 
   return (
     <>
-      <Button variant="primary" onClick={openModal}>
+      <Button  className="btn-primary" variant="primary" onClick={openModal}>
         Add Patient
       </Button>
-      <Modal show={showModal} onHide={handleClose}>
+      <Modal  show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add New Patient</Modal.Title>
+          <Modal.Title style={{marginLeft:"120px"}}>Add New Patient</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="name">
+            <Form.Group style={{margin:"10px" , padding:"10px"}} controlId="name">
               <Form.Label>Name:</Form.Label>
               <Form.Control
                 type="text"
@@ -62,7 +63,7 @@ const AddPatient = () => {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="birthday">
+            <Form.Group style={{margin:"10px" , padding:"10px"}} controlId="birthday">
               <Form.Label>Birthday:</Form.Label>
               <Form.Control
                 type="text"
@@ -72,7 +73,7 @@ const AddPatient = () => {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="contactNo">
+            <Form.Group style={{margin:"10px" , padding:"10px"}} controlId="contactNo">
               <Form.Label>Contact Number:</Form.Label>
               <Form.Control
                 type="text"
@@ -82,7 +83,7 @@ const AddPatient = () => {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="nic">
+            <Form.Group style={{margin:"10px" , padding:"10px"}} controlId="nic">
               <Form.Label>NIC:</Form.Label>
               <Form.Control
                 type="text"
@@ -92,7 +93,7 @@ const AddPatient = () => {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="notes">
+            <Form.Group style={{margin:"10px" , padding:"10px"}} controlId="notes">
               <Form.Label>Notes:</Form.Label>
               <Form.Control
                 type="text"
@@ -102,8 +103,8 @@ const AddPatient = () => {
                 required
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Create Patient
+            <Button style={{marginLeft:"150px" , paddingLeft:"30px" , paddingRight:"30px"}} variant="primary" type="submit">
+              Submit
             </Button>
           </Form>
         </Modal.Body>
