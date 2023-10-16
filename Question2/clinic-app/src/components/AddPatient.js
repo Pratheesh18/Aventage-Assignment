@@ -18,11 +18,11 @@ const AddPatient = () => {
     setPatient({ ...patient, [name]: value });
   };
 
-  // const openModal = () => {
-  //     setShowModal(true);
-  // }
+  const openModal = () => {
+    setShowModal(true);
+  };
 
-  const closeModal = () => {
+  const handleClose = () => {
     setShowModal(false);
   };
 
@@ -35,70 +35,80 @@ const AddPatient = () => {
         patient
       );
       console.log("New Patient created", response.data);
-      closeModal();
+      handleClose();
     } catch (error) {
       console.error("Error in creating patient", error);
     }
   };
 
   return (
-    <Modal show={true} onHide={closeModal}>
-      <Modal.Header closeButton>
-        <Modal.Title>Add New Patient</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="name">
-            <Form.Label>Name:</Form.Label>
-            <Form.Control
-              type="text"
-              name="name"
-              value={patient.name}
-              onChange={handleInputChange}
-            />
-          </Form.Group>
-          <Form.Group controlId="birthday">
-            <Form.Label>Birthday:</Form.Label>
-            <Form.Control
-              type="text"
-              name="birthday"
-              value={patient.birthday}
-              onChange={handleInputChange}
-            />
-          </Form.Group>
-          <Form.Group controlId="contactNo">
-            <Form.Label>Contact Number:</Form.Label>
-            <Form.Control
-              type="text"
-              name="contactNo"
-              value={patient.contactNo}
-              onChange={handleInputChange}
-            />
-          </Form.Group>
-          <Form.Group controlId="nic">
-            <Form.Label>NIC:</Form.Label>
-            <Form.Control
-              type="text"
-              name="nic"
-              value={patient.nic}
-              onChange={handleInputChange}
-            />
-          </Form.Group>
-          <Form.Group controlId="notes">
-            <Form.Label>Notes:</Form.Label>
-            <Form.Control
-              type="text"
-              name="notes"
-              value={patient.notes}
-              onChange={handleInputChange}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Create Patient
-          </Button>
-        </Form>
-      </Modal.Body>
-    </Modal>
+    <>
+      <Button variant="primary" onClick={openModal}>
+        Add Patient
+      </Button>
+      <Modal show={showModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add New Patient</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="name">
+              <Form.Label>Name:</Form.Label>
+              <Form.Control
+                type="text"
+                name="name"
+                value={patient.name}
+                onChange={handleInputChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group controlId="birthday">
+              <Form.Label>Birthday:</Form.Label>
+              <Form.Control
+                type="text"
+                name="birthday"
+                value={patient.birthday}
+                onChange={handleInputChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group controlId="contactNo">
+              <Form.Label>Contact Number:</Form.Label>
+              <Form.Control
+                type="text"
+                name="contactNo"
+                value={patient.contactNo}
+                onChange={handleInputChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group controlId="nic">
+              <Form.Label>NIC:</Form.Label>
+              <Form.Control
+                type="text"
+                name="nic"
+                value={patient.nic}
+                onChange={handleInputChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group controlId="notes">
+              <Form.Label>Notes:</Form.Label>
+              <Form.Control
+                type="text"
+                name="notes"
+                value={patient.notes}
+                onChange={handleInputChange}
+                required
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Create Patient
+            </Button>
+          </Form>
+        </Modal.Body>
+      </Modal>
+    </>
   );
 };
 
