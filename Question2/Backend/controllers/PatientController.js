@@ -11,6 +11,21 @@ const createPatient = async (req,res) => {
     }
 };
 
+const searchPatient = async (req,res) => {
+    try{
+        const {name} = req.query;
+        const searchResults = await Patient.find({
+            name : { $regex : new RegExp(name , "i")},
+        });
+
+        res.json(searchResults);
+        console.log(searchResults)
+    }catch(error){
+        console.error("Error searching for patients " , error);
+        res.status(500).json({error : "Server error"});
+    }
+};
+
 
 const getAllPatients = async (req,res) => {
     try{
@@ -65,6 +80,7 @@ const deletePatient = async (req,res) => {
 
 module.exports = {
     createPatient , 
+    searchPatient,
     getAllPatients,
     getOnePatient,
     updatePatientDetails,

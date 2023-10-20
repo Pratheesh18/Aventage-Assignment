@@ -40,7 +40,7 @@ const AddPatient = () => {
         patient
       );
       console.log("New Patient created", response.data);
-      handleClose();
+      setPatient((prevPatients) => [...prevPatients , response.data]);
     } catch (error) {
       console.error("Error in creating patient", error);
     }
